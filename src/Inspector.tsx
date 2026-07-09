@@ -1,11 +1,10 @@
-import {useRef} from "react"
 import {InspectorComponent} from "@visuallyjs/browser-ui-react"
 
 import {Base, isNode, isPort, Vertex} from "@visuallyjs/browser-ui"
 import {PROPERTY_TEXT, PROPERTY_URL, TYPE_CONDITIONS, PROPERTY_NUMBER, TYPE_CALL_FORWARD, TYPE_PLAY_AUDIO, TYPE_REQUEST, TYPE_SET_VARIABLES} from "./constants"
 
 import SetValuesInspectorComponent from "./SetValuesInspectorComponent"
-import {BrowserUIReactModel, useVisuallyJsModel} from "@visuallyjs/browser-ui-react";
+import {useVisuallyJsModel} from "@visuallyjs/browser-ui-react";
 
 const portTypeMap:Record<string, string> = {
     [TYPE_CONDITIONS]:"condition"
@@ -13,8 +12,7 @@ const portTypeMap:Record<string, string> = {
 
 export default function CallflowInspector() {
 
-    const model = useRef<BrowserUIReactModel>(null)
-    useVisuallyJsModel().then(m => model.current = m)
+    const model = useVisuallyJsModel()
 
     function getType(obj:Base) {
         if (isNode(obj)) {
@@ -25,12 +23,12 @@ export default function CallflowInspector() {
     }
 
     function updateVariables(obj:Vertex, variables:Array<any>) {
-        model.current!.updateNode(obj, {variables})
-        model.current!.clearSelection()
+        model!.updateNode(obj, {variables})
+        model!.clearSelection()
     }
 
     function cancel() {
-        model.current!.clearSelection()
+        model!.clearSelection()
     }
 
     return <InspectorComponent className="vjs-callflow-inspector">
