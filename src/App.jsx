@@ -12,7 +12,7 @@ import modelOptions from './model-options'
 import CallFlowPalette from "./CallFlowPalette.tsx";
 import CallflowInspector from "./Inspector.tsx";
 
-function App({url}) {
+function App({url, hidePaletteAndInspector}) {
 
   return <div className="vjs-callflow">
       <SurfaceProvider>
@@ -25,10 +25,10 @@ function App({url}) {
               <ControlsComponent/>
               <MiniviewComponent/>
           </SurfaceComponent>
-          <div className="vjs-callflow-rhs">
+          {hidePaletteAndInspector !== true && <div className="vjs-callflow-rhs">
               <CallFlowPalette/>
               <CallflowInspector/>
-          </div>
+          </div>}
 
       </SurfaceProvider>
   </div>
