@@ -2,7 +2,8 @@ import {
     SurfaceProvider,
     SurfaceComponent,
     ControlsComponent,
-    MiniviewComponent
+    MiniviewComponent,
+    GridBackgroundComponent
 } from "@visuallyjs/browser-ui-react"
 
 import renderOptions from './render-options'
@@ -24,6 +25,7 @@ function App({url, hidePaletteAndInspector}) {
 
               <ControlsComponent/>
               <MiniviewComponent/>
+              <GridBackgroundComponent/>
           </SurfaceComponent>
           {hidePaletteAndInspector !== true && <div className="vjs-callflow-rhs">
               <CallFlowPalette/>
