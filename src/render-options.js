@@ -1,4 +1,4 @@
-import {BackgroundPlugin, GeneratedGridBackground, AnchorLocations, CONNECTOR_TYPE_ORTHOGONAL} from "@visuallyjs/browser-ui";
+import {BackgroundPlugin, GeneratedGridBackground, AnchorLocations, CONNECTOR_TYPE_ORTHOGONAL, PLUGIN_TYPE_LINE_CROSSINGS} from "@visuallyjs/browser-ui";
 
 const renderOptions = {
 
@@ -21,12 +21,7 @@ const renderOptions = {
         }
     },
     plugins:[
-        {
-            type:BackgroundPlugin.type,
-            options:{
-                type:GeneratedGridBackground.type
-            }
-        }
+        PLUGIN_TYPE_LINE_CROSSINGS
     ]
 }
 
