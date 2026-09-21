@@ -18,8 +18,11 @@ body * {
 
 .vjs-callflow {
   display: flex;
-  height: 80vh;
   background-color: #f1f3f5;
+}
+
+.vjs-surface {
+    height: 80vh;
 }
 
 .vjs-callflow-rhs {
